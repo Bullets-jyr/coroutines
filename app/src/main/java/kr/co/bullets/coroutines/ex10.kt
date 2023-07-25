@@ -1,4 +1,4 @@
-package kr.co.bullets.coroutines
+package kr.co.bullets.coroutines.ex10
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
