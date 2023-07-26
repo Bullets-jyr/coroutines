@@ -4,7 +4,7 @@ import kotlinx.coroutines.*
 
 fun main() = runBlocking<Unit> {
     val job = launch {
-        launch(Job()) {
+        launch(Job()) { // Job()을 새로 만들 경우, 부모, 자식 관계가 끊어집니다.
             println(coroutineContext[Job])
             println("launch1: ${Thread.currentThread().name}")
             delay(1000L)

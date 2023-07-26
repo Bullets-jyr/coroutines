@@ -4,17 +4,18 @@ import kotlin.system.*
 import kotlinx.coroutines.*
 
 fun main() = runBlocking<Unit> {
-    launch {
-        launch(Dispatchers.IO + CoroutineName("launch1")) {
+    // CoroutineContext: 부모 + 자식
+    launch {  // CoroutineContext
+        launch(Dispatchers.IO + CoroutineName("launch1")) { // CoroutineContext
             println("launch1: ${Thread.currentThread().name}")
-            println(coroutineContext[CoroutineDispatcher])
+//            println(coroutineContext[CoroutineDispatcher])
             println(coroutineContext[CoroutineName])
             delay(5000L)
         }
 
-        launch(Dispatchers.Default + CoroutineName("launch1")) {
+        launch(Dispatchers.Default + CoroutineName("launch2")) { // CoroutineContext
             println("launch2: ${Thread.currentThread().name}")
-            println(coroutineContext[CoroutineDispatcher])
+//            println(coroutineContext[CoroutineDispatcher])
             println(coroutineContext[CoroutineName])
             delay(10L)
         }
